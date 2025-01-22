@@ -1,28 +1,30 @@
-Here's the updated **README.md** with consistent markdown formatting. All code and command-related parts are enclosed in proper markdown code blocks for clarity and uniformity:
-
-```markdown
 # Prospect File Compiler
 
 **Prospect File Compiler** is a Python-based tool designed to efficiently merge and deduplicate two Excel prospect files. By focusing on the `ADDRESS`, `ZIP`, and `COUNTY` columns, this script ensures that your compiled prospect list is accurate and free from duplicates. The final output is a consolidated Excel file named `compile_prospect_file.xlsx`.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Requirements](#requirements)
-  - [Python Version](#python-version)
-  - [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Input Files](#input-files)
-  - [Running the Script](#running-the-script)
-    - [On macOS](#on-macos)
-    - [On Windows](#on-windows)
-- [Example Run](#example-run)
-  - [Script Output](#script-output)
-  - [Output File](#output-file)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
-- [Contributing](#contributing)
+- [Prospect File Compiler](#prospect-file-compiler)
+	- [Table of Contents](#table-of-contents)
+	- [Features](#features)
+	- [Requirements](#requirements)
+		- [Python Version](#python-version)
+		- [Dependencies](#dependencies)
+	- [Installation](#installation)
+	- [Usage](#usage)
+		- [Input Files](#input-files)
+		- [Running the Script](#running-the-script)
+			- [On macOS](#on-macos)
+			- [On Windows](#on-windows)
+	- [Example Run](#example-run)
+		- [Script Output](#script-output)
+		- [Output File](#output-file)
+	- [Troubleshooting](#troubleshooting)
+		- [Common Errors and Solutions](#common-errors-and-solutions)
+			- [1. File Not Found](#1-file-not-found)
+			- [2. Missing Required Columns](#2-missing-required-columns)
+			- [3. FutureWarning: Downcasting Object Dtype Arrays](#3-futurewarning-downcasting-object-dtype-arrays)
+	- [License](#license)
 
 ## Features
 
