@@ -1,85 +1,135 @@
-Here’s the documentation in README.md format:
+# Prospect File Compiler
 
-Prospect File Compiler
+**Prospect File Compiler** is a Python script designed to merge and deduplicate two Excel prospect files based on specific columns. This tool ensures that your compiled prospect list is clean, accurate, and free of duplicates, making it easier to manage and analyze your data.
 
-This script compiles two Excel prospect files into one by merging and deduplicating based on ADDRESS, ZIP, and COUNTY. It is specifically designed to work with files exported from a system that uses these exact column headers. The resulting file is saved as compile_prospect_file.xlsx.
+## Table of Contents
 
-Features
-	•	Merge two prospect files: Combines data from both files based on ADDRESS, ZIP, and COUNTY.
-	•	Remove duplicates: Ensures unique rows based on the combination of these three columns.
-	•	Track sources: Adds a prospect_file_source column to indicate whether a record is from:
-	•	8020REI only
-	•	Other data provider only
-	•	Both
-	•	Unified columns: Merges duplicate columns with different suffixes (e.g., _8020 and _other) into a single column.
+- [Prospect File Compiler](#prospect-file-compiler)
+	- [Table of Contents](#table-of-contents)
+	- [Features](#features)
+	- [Requirements](#requirements)
+		- [Python Version](#python-version)
+		- [Dependencies](#dependencies)
+	- [Welcome! This script will compile two Excel prospect files into one, removing duplicates.](#welcome-this-script-will-compile-two-excel-prospect-files-into-one-removing-duplicates)
 
-Requirements
+## Features
 
-Python Version
-	•	Python 3.7 or later
+- **Merge Two Prospect Files**: Combines data from both files based on `ADDRESS`, `ZIP`, and `COUNTY`.
+- **Remove Duplicates**: Ensures unique rows by eliminating duplicates based on the specified columns.
+- **Track Sources**: Adds a `prospect_file_source` column to indicate the origin of each record:
+  - `8020REI only`
+  - `Other data provider only`
+  - `Both`
+- **Unified Columns**: Merges duplicate columns with different suffixes (e.g., `_8020` and `_other`) into a single column.
 
-Dependencies
+## Requirements
 
-Install the required libraries using requirements.txt:
+### Python Version
 
+- Python **3.7** or later
+
+### Dependencies
+
+Install the required libraries using `requirements.txt`:
+
+```bash
 pip install -r requirements.txt
 
-The required libraries are:
+Required Libraries:
 	•	pandas
 	•	openpyxl
 	•	prettytable
 
-Usage Instructions
+Installation
+	1.	Clone the Repository:
 
-Input Files
-	1.	Both input files must contain the following columns in uppercase:
-	•	ADDRESS
-	•	ZIP
-	•	COUNTY
-	2.	Ensure the files are Excel files (.xlsx).
-
-Steps to Run
-
-On macOS
-	1.	Open Terminal.
-	2.	Navigate to the script directory:
-
-cd /path/to/Prospect-Compiler
+git clone https://github.com/yourusername/prospect-file-compiler.git
 
 
-	3.	Activate your virtual environment (if applicable):
+	2.	Navigate to the Directory:
+
+cd prospect-file-compiler
+
+
+	3.	Create a Virtual Environment (Optional but Recommended):
+
+python3 -m venv venv
+
+
+	4.	Activate the Virtual Environment:
+	•	macOS/Linux:
 
 source venv/bin/activate
 
 
-	4.	Run the script:
-
-python3 main.py
-
-
-	5.	Follow the prompts to provide the full paths to the two Excel files.
-
-On Windows
-	1.	Open Command Prompt (or PowerShell).
-	2.	Navigate to the script directory:
-
-cd C:\path\to\Prospect-Compiler
-
-
-	3.	Activate your virtual environment (if applicable):
+	•	Windows:
 
 venv\Scripts\activate
 
 
-	4.	Run the script:
+	5.	Install Dependencies:
+
+pip install -r requirements.txt
+
+
+
+Usage
+
+Input Files
+
+Ensure that both input Excel files meet the following criteria:
+	1.	Required Columns (All in Uppercase):
+	•	ADDRESS
+	•	ZIP
+	•	COUNTY
+	2.	File Format:
+	•	Must be Excel files with a .xlsx extension.
+
+Running the Script
+
+On macOS
+	1.	Open Terminal.
+	2.	Navigate to the Script Directory:
+
+cd /path/to/Prospect-Compiler
+
+
+	3.	Activate the Virtual Environment (If Applicable):
+
+source venv/bin/activate
+
+
+	4.	Run the Script:
+
+python3 main.py
+
+
+	5.	Follow the Prompts:
+	•	Provide the full paths to the two Excel prospect files when prompted.
+
+On Windows
+	1.	Open Command Prompt or PowerShell.
+	2.	Navigate to the Script Directory:
+
+cd C:\path\to\Prospect-Compiler
+
+
+	3.	Activate the Virtual Environment (If Applicable):
+
+venv\Scripts\activate
+
+
+	4.	Run the Script:
 
 python main.py
 
 
-	5.	Follow the prompts to provide the full paths to the two Excel files.
+	5.	Follow the Prompts:
+	•	Provide the full paths to the two Excel prospect files when prompted.
 
 Example Run
-	1.	Script Output:
+
+Script Output
 
 Welcome! This script will compile two Excel prospect files into one, removing duplicates.
 --------------------------------------------------------------------------------------
@@ -117,23 +167,48 @@ Final compiled Excel file is saved as 'compile_prospect_file.xlsx' in the curren
 
 Done. Thank you for using this script!
 
-
-	2.	Output File:
-	•	The resulting file compile_prospect_file.xlsx will be saved in the same directory as the script.
+Output File
+	•	compile_prospect_file.xlsx: The resulting compiled Excel file will be saved in the same directory as the script.
 
 Troubleshooting
 
-Error: ERROR: The file '<path>' does not exist.
-	•	Ensure the file path is correct. You can drag and drop the file into the terminal/command prompt to get the full path.
+Common Errors and Solutions
 
-Error: ValueError: File does not contain required column: ...
-	•	Ensure the files have the columns ADDRESS, ZIP, and COUNTY in uppercase.
+1. File Not Found
 
-Warning: FutureWarning: Downcasting object dtype arrays on .fillna is deprecated
-	•	This issue has been addressed in the script. If you still encounter this warning, ensure you are running the latest version of the script.
+Error Message:
+
+ERROR: The file '<path>' does not exist.
+
+Solution:
+	•	Verify that the file path you provided is correct.
+	•	You can drag and drop the file into the terminal or command prompt to automatically get the full path.
+
+2. Missing Required Columns
+
+Error Message:
+
+ValueError: File does not contain required column: ...
+
+Solution:
+	•	Ensure that both Excel files contain the columns ADDRESS, ZIP, and COUNTY in uppercase.
+	•	Check for any typos or case mismatches in the column headers.
+
+3. FutureWarning: Downcasting Object Dtype Arrays
+
+Warning Message:
+
+FutureWarning: Downcasting object dtype arrays on .fillna is deprecated
+
+Solution:
+	•	The script has been updated to address this warning. Make sure you are using the latest version of the script.
+	•	If the warning persists, consider updating the pandas library or modifying the script as suggested in the warning message.
 
 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
 
-Feel free to update this README with any additional details specific to your project or environment.
+Feel free to contribute, report issues, or suggest enhancements!
+
+This README was generated and improved to provide clear and comprehensive documentation for the Prospect File Compiler project.
+
